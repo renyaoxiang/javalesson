@@ -7,12 +7,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.google.common.io.Files;
 
 public class Lesson8 {
 
@@ -156,7 +155,6 @@ public class Lesson8 {
 		 */
 		try {
 			FileUtils.readLines(null);
-			Files.readLines(null, null, null);
 			FileUtils.lineIterator(null);
 		} catch (Exception e) {
 		}

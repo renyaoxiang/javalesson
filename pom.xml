@@ -54,75 +54,7 @@
 			<artifactId>aopalliance</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-mapreduce-client-core</artifactId>
-			<version>2.6.0</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>snappy-java</artifactId>
-					<groupId>org.xerial.snappy</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.curator</groupId>
-			<artifactId>curator-recipes</artifactId>
-			<version>2.1.0-incubating</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>guava</artifactId>
-					<groupId>com.google.guava</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.curator</groupId>
-			<artifactId>curator-examples</artifactId>
-			<version>2.1.0-incubating</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>guava</artifactId>
-					<groupId>com.google.guava</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-hdfs</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-common</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-yarn-applications-distributedshell</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-yarn-common</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-yarn-server-resourcemanager</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-mapreduce-client-common</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-mapreduce-client-hs</artifactId>
-			<version>2.6.0</version>
-		</dependency>
-
+	
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
@@ -137,6 +69,16 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.collections</groupId>
+			<artifactId>google-collections</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
 		</dependency>
 	</dependencies>
 	<repositories>
@@ -172,6 +114,7 @@
 			<plugin>
                 <!-- explicitly define maven-deploy-plugin after other to force execorder -->
 				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
 				<executions>
 					<execution>
 						<id>deploy</id>
@@ -185,17 +128,6 @@
 		</plugins>
 	</build>
 	<distributionManagement>
-		<!-- use the following if you're not using a snapshot version. -->
-		<repository>
-			<id>my-nexus-releases</id>
-			<name>Internal Releases</name>
-			<url>http://192.168.1.160:8081/nexus/content/repositories/releases</url>
-		</repository>
-		<!-- use the following if you ARE using a snapshot version. -->
-		<snapshotRepository>
-			<id>my-nexus-releases</id>
-			<name>Internal Releases</name>
-			<url>http://192.168.1.160:8081/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
+
 	</distributionManagement>
 </project>

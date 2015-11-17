@@ -62,5 +62,9 @@ public class Lesson9 {
 		} else {
 			System.out.println("test != test1");
 		}
+		if (test1.i == test2.i) {
+			System.out.println("true");
+		}
+
 	}
 }

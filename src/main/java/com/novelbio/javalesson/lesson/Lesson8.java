@@ -5,8 +5,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.Lists;
@@ -138,14 +140,14 @@ public class Lesson8 {
 		int[] tree = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 		search(tree, 0, 5);
 		/*
-		 *图搜索一般不会用到，和树类似，如果用到网上找资料 
+		 * 图搜索一般不会用到，和树类似，如果用到网上找资料
 		 */
 
 		/**
 		 * <pre>
 		 * 7、java编程手则 
 		 * 1、方法功能单一、明确 
-		 * 2学会抛异常
+		 * 2、学会抛异常
 		 * </pre>
 		 */
 		double result = division(1, 2);
@@ -154,8 +156,11 @@ public class Lesson8 {
 		 * 8 文件读取 FileUtils、Files
 		 */
 		try {
-			FileUtils.readLines(null);
-			FileUtils.lineIterator(null);
+			List<String> lines = FileUtils.readLines(null);
+			LineIterator iter = FileUtils.lineIterator(null);
+			while (iter.hasNext()) {
+				String line = iter.next();
+			}
 		} catch (Exception e) {
 		}
 	}
@@ -165,8 +170,7 @@ public class Lesson8 {
 			throw new RuntimeException("num2 can not be 0");
 		}
 		/*
-		 * 整数除以整数，结果会忽略小数
-		 * *1.0的作用是进行转换
+		 * 整数除以整数，结果会忽略小数 *1.0的作用是进行转换
 		 */
 		System.out.println(i * 1.0 / j);
 		return i * 1.0 / j;

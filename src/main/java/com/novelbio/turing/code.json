@@ -1,0 +1,24 @@
+{
+    {
+        "op":"set",
+        "name":"a",
+        "value":"1",
+        
+    },
+    {
+        "op":"set",
+        "name":"b",
+        "value":"2",
+        
+    },
+    {
+        "op":"add",
+        "name":"c",
+        "param1":"a",
+        "param2":"b"
+    },
+    {
+        "op":"output",
+        "name":"c"
+    }
+}

@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.novelbio</groupId>
@@ -8,45 +9,27 @@
 
 	<name>javalesson</name>
 	<url>http://maven.apache.org</url>
-	<profiles>
 
-		<profile>
-
-			<id>test</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-
-			<properties>
-   		 <!-- mysql -->
-				<p.jdbc.url>127.0.0.1:3306</p.jdbc.url>
-				<p.jdbc.dbname>test_trunk</p.jdbc.dbname>
-				<p.jdbc.username>root</p.jdbc.username>
-				<p.jdbc.password>123456</p.jdbc.password>   
-                 <!--包名后缀-->
-				<p.package.suffix>test</p.package.suffix>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>production</id>
-			<properties>
-    <!-- mysql -->
-				<p.jdbc.url>10.5.121.186:23325</p.jdbc.url>
-				<p.jdbc.dbname>db_prod</p.jdbc.dbname>
-				<p.jdbc.username>root</p.jdbc.username>
-				<p.jdbc.password>root</p.jdbc.password>
-                <!--包名后缀-->
-				<p.package.suffix>prod</p.package.suffix>
-			</properties>
-
-		</profile>
-
-	</profiles>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>4.1.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-agent</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.yahoo.platform.yui</groupId>
 			<artifactId>yuicompressor</artifactId>
@@ -67,11 +50,6 @@
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-			<version>3.1.3.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -124,51 +102,29 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-annotations</artifactId>
+			<version>2.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-yarn-api</artifactId>
+			<version>2.7.1</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 	</repositories>
 
 	<build>
-		<finalName>core</finalName>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-antrun-plugin</artifactId>
-			<version>1.3</version>
-			<executions>
-				<execution>
-					<id>compile</id>
-					<phase>compile</phase>
-					<configuration>
-						<tasks>
-							<property name="yuicompressor.jar" value="${maven.dependency.com.yahoo.platform.yui.yuicompressor.jar.path}" />
-							<ant antfile="yuicompress.xml" target="clean" />
-						</tasks>
-					</configuration>
-					<goals>
-						<goal>run</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>1.3</version>
-				<execution>
-					<id>compile</id>
-					<phase>compile</phase>
-					<configuration>
-						<tasks>
-							<property name="yuicompressor.jar" value="${maven.dependency.com.yahoo.platform.yui.yuicompressor.jar.path}" />
-							<ant antfile="yuicompress.xml" target="clean" />
-						</tasks>
-					</configuration>
-					<goals>
-						<goal>run</goal>
-					</goals>
-				</execution>
+
 			</plugin>
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
@@ -194,7 +150,7 @@
 				</executions>
 			</plugin>
 			<plugin>
-                <!-- explicitly define maven-deploy-plugin after other to force execorder -->
+				<!-- explicitly define maven-deploy-plugin after other to force execorder -->
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.7</version>
 				<executions>

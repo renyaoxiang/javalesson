@@ -48,9 +48,6 @@ public class GzFileExtractor {
 		this.runningEnd = end;
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		Validate.isTrue(args.length == 3, "需要三个输入参数:文件名 起始组号(1位开始，包括) 结束组号(1位开始，包括");
 		String fileName = args[0];
@@ -73,8 +70,8 @@ public class GzFileExtractor {
 	public void run() {
 		String outputName = getOutputFileName(fileName);
 		int totalGroupNumber = getTotalNumber(fileName);
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(
-				fileName))));
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new GZIPInputStream(
+				new FileInputStream(fileName))));
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new GZIPOutputStream(
 						new FileOutputStream(outputName))))) {
 			for (int index = 0; index < runningEnd && index < totalGroupNumber; index++) {
@@ -95,8 +92,8 @@ public class GzFileExtractor {
 
 	private int getTotalNumber(String fileName) {
 		int totalGroupNumber = 0;
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(
-				fileName))))) {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new GZIPInputStream(
+				new FileInputStream(fileName))))) {
 			int groupLineNumber = 0;
 			for (String line = br.readLine(); line != null; line = br.readLine()) {
 				if (line.startsWith("@")) {
@@ -120,9 +117,11 @@ public class GzFileExtractor {
 		int endIndex = fileName.lastIndexOf(".");
 		String outputName = "";
 		if (startIndex < endIndex) {
-			outputName = path + fileName.substring(startIndex, endIndex) + "-extract-" + start + "-" + end + ".gz";
+			outputName = path + fileName.substring(startIndex, endIndex) + "-extract-" + start
+					+ "-" + end + ".gz";
 		} else {
-			outputName = path + fileName.substring(startIndex) + "-extract-" + start + "-" + end + ".gz";
+			outputName = path + fileName.substring(startIndex) + "-extract-" + start + "-" + end
+					+ ".gz";
 		}
 		return outputName;
 	}

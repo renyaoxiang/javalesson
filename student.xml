@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_45" class="java.beans.XMLDecoder">
+ <object class="com.novelbio.xml.Student">
+  <void property="age">
+   <int>10</int>
+  </void>
+  <void property="nameString">
+   <string>卞哲</string>
+  </void>
+ </object>
+</java>

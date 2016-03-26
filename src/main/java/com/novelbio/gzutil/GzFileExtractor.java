@@ -20,7 +20,6 @@ import org.apache.commons.lang3.Validate;
  * 
  * 
  * @author renyx
- * @date 2015年11月17日
  * 
  */
 public class GzFileExtractor {
@@ -33,8 +32,11 @@ public class GzFileExtractor {
 
 	/**
 	 * @param fileName
+	 *            filename
 	 * @param start
-	 * @param count
+	 *            start
+	 * @param end
+	 *            end
 	 */
 	public GzFileExtractor(String fileName, int start, int end) {
 		Validate.notBlank(fileName);
@@ -70,10 +72,10 @@ public class GzFileExtractor {
 	public void run() {
 		String outputName = getOutputFileName(fileName);
 		int totalGroupNumber = getTotalNumber(fileName);
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new GZIPInputStream(
-				new FileInputStream(fileName))));
-				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new GZIPOutputStream(
-						new FileOutputStream(outputName))))) {
+		try (BufferedReader br = new BufferedReader(
+				new InputStreamReader(new GZIPInputStream(new FileInputStream(fileName))));
+				BufferedWriter bw = new BufferedWriter(
+						new OutputStreamWriter(new GZIPOutputStream(new FileOutputStream(outputName))))) {
 			for (int index = 0; index < runningEnd && index < totalGroupNumber; index++) {
 
 				for (int i = 0; i < 4; i++) {
@@ -92,8 +94,8 @@ public class GzFileExtractor {
 
 	private int getTotalNumber(String fileName) {
 		int totalGroupNumber = 0;
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new GZIPInputStream(
-				new FileInputStream(fileName))))) {
+		try (BufferedReader br = new BufferedReader(
+				new InputStreamReader(new GZIPInputStream(new FileInputStream(fileName))))) {
 			int groupLineNumber = 0;
 			for (String line = br.readLine(); line != null; line = br.readLine()) {
 				if (line.startsWith("@")) {
@@ -117,11 +119,9 @@ public class GzFileExtractor {
 		int endIndex = fileName.lastIndexOf(".");
 		String outputName = "";
 		if (startIndex < endIndex) {
-			outputName = path + fileName.substring(startIndex, endIndex) + "-extract-" + start
-					+ "-" + end + ".gz";
+			outputName = path + fileName.substring(startIndex, endIndex) + "-extract-" + start + "-" + end + ".gz";
 		} else {
-			outputName = path + fileName.substring(startIndex) + "-extract-" + start + "-" + end
-					+ ".gz";
+			outputName = path + fileName.substring(startIndex) + "-extract-" + start + "-" + end + ".gz";
 		}
 		return outputName;
 	}

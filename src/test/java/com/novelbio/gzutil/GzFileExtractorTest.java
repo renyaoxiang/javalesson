@@ -25,7 +25,7 @@ public class GzFileExtractorTest {
 	/**
 	 * Test method for {@link com.novelbio.gzutil.GzFileExtractor#run()}.
 	 */
-	@Test
+//	@Test
 	public void testRun() {
 		String path = "/home/novelbio/git/javalesson/src/test/java/com/novelbio/gzutil/";
 		String fileName = path + "mock.gz";

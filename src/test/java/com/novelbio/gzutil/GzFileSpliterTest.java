@@ -24,7 +24,7 @@ public class GzFileSpliterTest {
 	/**
 	 * Test method for {@link com.novelbio.gzutil.GzFileSpliter#run()}.
 	 */
-	@Test
+//	@Test
 	public void testRun() {
 		String path = "/home/novelbio/workspace/javalesson/src/test/java/com/novelbio/gzutil/";
 		String fileName = path + "mock.gz";

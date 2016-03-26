@@ -28,7 +28,6 @@ import org.apache.commons.lang3.Validate;
  * 3、文件总行是必须是4的倍数
  * </pre>
  * 
- * @date 2015-10-9
  * @author renyx
  *
  */
@@ -39,7 +38,9 @@ public class GzFileSpliter {
 
 	/**
 	 * @param fileName
+	 *            filename
 	 * @param partCount
+	 *            the number of the file to be splited to
 	 */
 	public GzFileSpliter(String fileName, int partCount) {
 		Validate.isTrue(StringUtils.isNoneBlank(fileName), "文件名不能为空");
@@ -62,13 +63,13 @@ public class GzFileSpliter {
 		int partLineCount = 1;
 		int totalGroupNumber = getTotalNumber(fileName);
 		partLineCount = (int) Math.ceil(totalGroupNumber * 1.0 / partCount);
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(
-				fileName))))) {
+		try (BufferedReader br = new BufferedReader(
+				new InputStreamReader(new GZIPInputStream(new FileInputStream(fileName))))) {
 			int actualReadedGroupCount = 0;
 			for (int partIndex = 0; partIndex < partCount && actualReadedGroupCount < totalGroupNumber; partIndex++) {
 				String outputName = getOutputFileName(fileName, path, partIndex);
-				try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new GZIPOutputStream(
-						new FileOutputStream(outputName))))) {
+				try (BufferedWriter bw = new BufferedWriter(
+						new OutputStreamWriter(new GZIPOutputStream(new FileOutputStream(outputName))))) {
 					for (int partActualReadedGroupCount = 0; partActualReadedGroupCount < partLineCount
 							&& actualReadedGroupCount < totalGroupNumber; partActualReadedGroupCount++, actualReadedGroupCount++) {
 						for (int i = 0; i < 4; i++) {
@@ -88,8 +89,8 @@ public class GzFileSpliter {
 
 	private int getTotalNumber(String fileName) {
 		int totalGroupNumber = 0;
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream(
-				fileName))))) {
+		try (BufferedReader br = new BufferedReader(
+				new InputStreamReader(new GZIPInputStream(new FileInputStream(fileName))))) {
 			int groupLineNumber = 0;
 			for (String line = br.readLine(); line != null; line = br.readLine()) {
 				if (line.startsWith("@")) {

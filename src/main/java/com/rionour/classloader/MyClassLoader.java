@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.novelbio.classloader;
+package com.rionour.classloader;
 
 import java.io.File;
 import java.io.IOException;

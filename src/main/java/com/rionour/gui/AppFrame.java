@@ -1,4 +1,4 @@
-package com.righthonour.gui;
+package com.rionour.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

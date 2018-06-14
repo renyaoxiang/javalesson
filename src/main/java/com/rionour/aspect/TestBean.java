@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.novelbio.aspect;
+package com.rionour.aspect;
 
 import org.springframework.stereotype.Component;
 

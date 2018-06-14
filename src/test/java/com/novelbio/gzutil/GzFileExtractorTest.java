@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.novelbio.gzutil;
+package com.rionour.gzutil;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -23,7 +23,7 @@ import org.junit.Test;
 public class GzFileExtractorTest {
 
 	/**
-	 * Test method for {@link com.novelbio.gzutil.GzFileExtractor#run()}.
+	 * Test method for {@link com.rionour.gzutil.GzFileExtractor#run()}.
 	 */
 //	@Test
 	public void testRun() {

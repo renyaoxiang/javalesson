@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.novelbio.aspect;
+package com.rionour.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -23,7 +23,7 @@ public class AspectObject {
 	@Autowired
 	TestBean testBean;
 
-	@Pointcut("@annotation(com.novelbio.aspect.AspectPoint)")
+	@Pointcut("@annotation(com.rionour.aspect.AspectPoint)")
 	private void anyOldTransfer() {
 	}
 

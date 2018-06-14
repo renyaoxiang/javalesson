@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.novelbio.gzutil;
+package com.rionour.gzutil;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -22,7 +22,7 @@ import org.junit.Test;
 public class GzFileSpliterTest {
 
 	/**
-	 * Test method for {@link com.novelbio.gzutil.GzFileSpliter#run()}.
+	 * Test method for {@link com.rionour.gzutil.GzFileSpliter#run()}.
 	 */
 //	@Test
 	public void testRun() {

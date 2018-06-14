@@ -1,16 +1,8 @@
-package com.novelbio.javalesson.lesson;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+package com.rionour.javalesson.lesson;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-
-public class Lesson3 {
+public class Lesson2 {
 
 	/**
 	 * <pre>
@@ -19,7 +11,6 @@ public class Lesson3 {
 	 * 该方法是个特殊函数，是程序的入口，即计算机识别代码的入口
 	 * </pre>
 	 */
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		/**
 		 * 控制台打印文字
@@ -68,21 +59,5 @@ public class Lesson3 {
 		 */
 		System.out.println(StringUtils.equals(stringValue, anotherStringValue));
 
-		/**
-		 * 3、对象数据类型
-		 */
-		/*
-		 * 所有对象的超类
-		 */
-		Object test = new Object();
-		/**
-		 * HashMap、HashSet、ArrayList数据结构，例子网上很多，自己找一下
-		 */
-		HashMap<String, String> hashMap = new HashMap<>();
-		hashMap = Maps.newHashMap();
-		HashSet<String> hashSet = new HashSet<>();
-		hashSet = Sets.newHashSet("1", "2");
-		ArrayList<String> arrayList = new ArrayList<>();
-		arrayList = Lists.newArrayList("1", "2");
 	}
 }

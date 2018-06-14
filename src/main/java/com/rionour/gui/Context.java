@@ -1,4 +1,4 @@
-package com.righthonour.gui;
+package com.rionour.gui;
 
 import javax.swing.JButton;
 import javax.swing.JTextPane;

@@ -1,4 +1,4 @@
-package com.novelbio.javalesson.lesson;
+package com.rionour.javalesson.lesson;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-public class Lesson7 {
+public class Lesson5 {
 
 	/**
 	 * <pre>
@@ -78,7 +78,7 @@ public class Lesson7 {
 		 */
 		Object test = new Object();
 		/**
-		 * HashMap、HashSet、ArrayList数据结构，例子网上很多，自己找一下
+		 * HashMap、HashSet、ArrayList、Array等数据结构，例子网上很多，自己找一下
 		 */
 		HashMap<String, String> hashMap = new HashMap<>();
 		hashMap = Maps.newHashMap();
@@ -129,59 +129,5 @@ public class Lesson7 {
 		} catch (Exception e) {
 			System.out.print("exception");
 		}
-
-		/**
-		 * 6、递归
-		 */
-		recursion(3);
-		int[] tree = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-		search(tree, 0, 5);
-		/*
-		 *图搜索一般不会用到，和树类似，如果用到网上找资料 
-		 */
-
-		/**
-		 * <pre>
-		 * 7、java编程手则 
-		 * 1、方法功能单一、明确 
-		 * 2、学会抛异常
-		 * </pre>
-		 */
-		double result = division(1, 2);
-
 	}
-
-	private static double division(int i, int j) {
-		if (j == 0) {
-			throw new RuntimeException("num2 can not be 0");
-		}
-		/*
-		 * 整数除以整数，结果会忽略小数
-		 * *1.0的作用是进行转换
-		 */
-		System.out.println(i * 1.0 / j);
-		return i * 1.0 / j;
-	}
-
-	private static void search(int[] tree, int index, int num) {
-		if (index > 9) {
-			return;
-		}
-		if (tree[index] == num) {
-			System.out.println("find");
-		} else {
-			System.out.println("not find");
-			search(tree, (index + 1) * 2 - 1, num);
-			search(tree, (index + 1) * 2, num);
-		}
-	}
-
-	private static void recursion(int i) {
-		System.out.println("before" + i);
-		if (i > 0) {
-			recursion(i - 1);
-		}
-		System.out.println("after" + i);
-	}
-
 }

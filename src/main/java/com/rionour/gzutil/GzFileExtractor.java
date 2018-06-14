@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.novelbio.gzutil;
+package com.rionour.gzutil;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,4 +1,4 @@
-package com.novelbio.javalesson.lesson;
+package com.rionour.javalesson.lesson;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-public class Lesson6 {
+public class Lesson7 {
 
 	/**
 	 * <pre>
@@ -140,6 +140,27 @@ public class Lesson6 {
 		 *图搜索一般不会用到，和树类似，如果用到网上找资料 
 		 */
 
+		/**
+		 * <pre>
+		 * 7、java编程手则 
+		 * 1、方法功能单一、明确 
+		 * 2、学会抛异常
+		 * </pre>
+		 */
+		double result = division(1, 2);
+
+	}
+
+	private static double division(int i, int j) {
+		if (j == 0) {
+			throw new RuntimeException("num2 can not be 0");
+		}
+		/*
+		 * 整数除以整数，结果会忽略小数
+		 * *1.0的作用是进行转换
+		 */
+		System.out.println(i * 1.0 / j);
+		return i * 1.0 / j;
 	}
 
 	private static void search(int[] tree, int index, int num) {

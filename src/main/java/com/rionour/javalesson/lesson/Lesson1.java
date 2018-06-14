@@ -1,4 +1,4 @@
-package com.novelbio.javalesson.lesson;
+package com.rionour.javalesson.lesson;
 
 public class Lesson1 {
 

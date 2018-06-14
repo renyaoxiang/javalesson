@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.novelbio.aspect;
+package com.rionour.aspect;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

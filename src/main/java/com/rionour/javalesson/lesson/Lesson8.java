@@ -1,18 +1,21 @@
-package com.novelbio.javalesson.lesson;
+package com.rionour.javalesson.lesson;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-public class Lesson4 {
+public class Lesson8 {
 
 	/**
 	 * <pre>
@@ -45,7 +48,7 @@ public class Lesson4 {
 		System.out.println(floatValue);
 		long longValue = 100L;
 		System.out.println(longValue);
-		double doubleValue = 100D;
+		double doubleValue = 10.10D;
 		System.out.println(doubleValue);
 		boolean booleanValue = true;
 		System.out.println(booleanValue);
@@ -99,5 +102,99 @@ public class Lesson4 {
 			String strValue = iter.next();
 			System.out.println(strValue);
 		}
+
+		/**
+		 * 5程序流程
+		 */
+		try {
+			if (StringUtils.equals("Test", "Test")) {
+				System.out.println("Test");
+			}
+			if (!StringUtils.equals("Test", "Test")) {
+				System.out.println("Test");
+			} else {
+				System.out.println("Test");
+			}
+			switch (1) {
+			case 2:
+				System.out.println("2");
+				break;
+			case 1:
+				System.out.println("1");
+				break;
+			default:
+				System.out.println("default");
+			}
+			for (String strValue : collection) {
+				System.out.println(strValue);
+			}
+			throw new Exception("test");
+		} catch (Exception e) {
+			System.out.print("exception");
+		}
+
+		/**
+		 * 6、递归
+		 */
+		recursion(3);
+		int[] tree = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		search(tree, 0, 5);
+		/*
+		 * 图搜索一般不会用到，和树类似，如果用到网上找资料
+		 */
+
+		/**
+		 * <pre>
+		 * 7、java编程手则 
+		 * 1、方法功能单一、明确 
+		 * 2、学会抛异常
+		 * </pre>
+		 */
+		double result = division(1, 2);
+
+		/**
+		 * 8 文件读取 FileUtils、Files
+		 */
+		try {
+			List<String> lines = FileUtils.readLines(null);
+			LineIterator iter = FileUtils.lineIterator(null);
+			while (iter.hasNext()) {
+				String line = iter.next();
+			}
+		} catch (Exception e) {
+		}
 	}
+
+	private static double division(int i, int j) {
+		if (j == 0) {
+			throw new RuntimeException("num2 can not be 0");
+		}
+		/*
+		 * 整数除以整数，结果会忽略小数 *1.0的作用是进行转换
+		 */
+		System.out.println(i * 1.0 / j);
+		return i * 1.0 / j;
+	}
+
+	private static void search(int[] tree, int index, int num) {
+		if (index > 9) {
+			return;
+		}
+		if (tree[index] == num) {
+			System.out.println("find");
+		} else {
+			System.out.println("not find");
+			search(tree, (index + 1) * 2 - 1, num);
+			search(tree, (index + 1) * 2, num);
+		}
+	}
+
+	private static void recursion(int i) {
+		System.out.println("before" + i);
+		if (i > 0) {
+			recursion(i - 1);
+		}
+		System.out.println("after" + i);
+	}
+
 }

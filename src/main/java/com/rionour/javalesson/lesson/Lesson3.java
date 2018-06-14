@@ -1,10 +1,8 @@
-package com.novelbio.javalesson.lesson;
+package com.rionour.javalesson.lesson;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -12,7 +10,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-public class Lesson5 {
+public class Lesson3 {
 
 	/**
 	 * <pre>
@@ -78,7 +76,7 @@ public class Lesson5 {
 		 */
 		Object test = new Object();
 		/**
-		 * HashMap、HashSet、ArrayList、Array等数据结构，例子网上很多，自己找一下
+		 * HashMap、HashSet、ArrayList数据结构，例子网上很多，自己找一下
 		 */
 		HashMap<String, String> hashMap = new HashMap<>();
 		hashMap = Maps.newHashMap();
@@ -86,48 +84,5 @@ public class Lesson5 {
 		hashSet = Sets.newHashSet("1", "2");
 		ArrayList<String> arrayList = new ArrayList<>();
 		arrayList = Lists.newArrayList("1", "2");
-
-		/**
-		 * 4、接口 Collection、Iterator、Map、Set、List
-		 */
-		Collection<String> collection = hashSet;
-		collection = arrayList;
-		for (String strValue : collection) {
-			System.out.println(strValue);
-		}
-		for (Iterator<String> iter = collection.iterator(); iter.hasNext();) {
-			String strValue = iter.next();
-			System.out.println(strValue);
-		}
-
-		/**
-		 * 5程序流程
-		 */
-		try {
-			if (StringUtils.equals("Test", "Test")) {
-				System.out.println("Test");
-			}
-			if (!StringUtils.equals("Test", "Test")) {
-				System.out.println("Test");
-			} else {
-				System.out.println("Test");
-			}
-			switch (1) {
-			case 2:
-				System.out.println("2");
-				break;
-			case 1:
-				System.out.println("1");
-				break;
-			default:
-				System.out.println("default");
-			}
-			for (String strValue : collection) {
-				System.out.println(strValue);
-			}
-			throw new Exception("test");
-		} catch (Exception e) {
-			System.out.print("exception");
-		}
 	}
 }

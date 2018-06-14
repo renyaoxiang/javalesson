@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.novelbio.javalesson.lesson;
+package com.rionour.javalesson.lesson;
 
 /**
  * 主要介绍值传递

@@ -1,4 +1,4 @@
-package com.righthonour.gui;
+package com.rionour.gui;
 
 import java.awt.BorderLayout;
 import java.net.InetAddress;
